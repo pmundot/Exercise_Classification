@@ -13,4 +13,5 @@ determine how to achieve this, two things needed to be solved: 1) Is there a pac
 body data points for a picture and 2) is there a dataset of pictures of people working out available for 
 the public.
 
-To further understand 
+To further understand click on the binder link 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pmundot/Exercise_Classification/HEAD?labpath=https%3A%2F%2Fgithub.com%2Fpmundot%2FExercise_Classification%2Fblob%2Fmain%2FExercise%2520Classification.ipynb)
