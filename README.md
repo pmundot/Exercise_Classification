@@ -13,4 +13,4 @@ determine how to achieve this, two things needed to be solved: 1) Is there a pac
 body data points for a picture and 2) is there a dataset of pictures of people working out available for 
 the public.
 
-The answer to these questions can be found in
+To further understand 
