@@ -14,4 +14,4 @@ body data points for a picture and 2) is there a dataset of pictures of people w
 the public.
 
 To further understand click on the binder link 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pmundot/Exercise_Classification/HEAD?labpath=https%3A%2F%2Fgithub.com%2Fpmundot%2FExercise_Classification%2Fblob%2Fmain%2FExercise%2520Classification.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pmundot/Exercise_Classification/HEAD)
