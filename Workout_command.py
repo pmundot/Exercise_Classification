@@ -1,5 +1,5 @@
 import argparse
-from workout_classification import exercise
+from workout_classification import photo_classification, video_classification
 
 
 
@@ -12,6 +12,7 @@ if __name__ == '__main__':
     parser.add_argument('-s','--save',dest='do_save', metavar='<saves>',default=None,help='Enter file name to save')
     args = parser.parse_args()
 
-    ex = exercise(args.do_photo)
-    ex.class_image(args.do_type,args.do_save)
+    #ex = photo_classification(args.do_photo)
+    ex = video_classification(args.do_video)
+    ex.class_video(args.do_type)
     #typop = {'default':ex.normal_image(),'skeleton':ex.skeleton_image(),'angels':ex.angels_image(),'c':4}
