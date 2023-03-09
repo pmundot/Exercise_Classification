@@ -36,12 +36,12 @@ There are 3 inputs for the program:
 To run the program through the command line, type:
 
 ```shell
-python workout_classifier.py print -i<input_file> -o<output_file> -l<layer>
+python workout_command.py print -i<input_file> -o<output_file> -l<layer>
 ```
 
 example provided with file test.jpg
 ```shell
-python workout_classifier.py print -i test.jpg -o classified.jpg 
+python workout_command.py print -i test.jpg -o classified.jpg 
 ```
 
 Replace `<input_file>` with the path to the image or video you would like to classify. Replace `<output_file>` with the name of the image you would like to classify and save along with file type. If you do not want to save the image, leave `<output_file>` blank. Replace `<layer>` with one of the 4 layers listed above if left blank then default will be used.
