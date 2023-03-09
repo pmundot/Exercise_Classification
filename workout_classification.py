@@ -222,19 +222,23 @@ class video_classification():
         clf = pickle.load(open(filename, 'rb'))
 
         self.vids = cv2.VideoCapture(self.vid)
+        w = self.vids.get(cv2.CAP_PROP_FRAME_WIDTH)
+        h = self.vids.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        fps = self.vids.get(cv2.CAP_PROP_FPS) 
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        out = cv2.VideoWriter('output.avi', fourcc, fps, (int(w),int(h)))
 
         while True:
             self.get_vid()
             try:
                 self.get_landmark()
                 finall = np.reshape([self.angles_to_df(t) for t in self.right_side],(1,5))
-                for i in self.right_side:
-                    self.angles_to_image(i)
+
                 cv2.putText(img=self.frame, 
                     text=self.trans[int(clf.predict(finall))], 
                     org=(70,70), 
                     fontFace=cv2.FONT_HERSHEY_SIMPLEX, 
-                    fontScale=1.5, color=(0, 0, 0),thickness=2)
+                    fontScale=1.5, color=(0, 0, 0),thickness=3)
                 
                 if tp.strip().lower()[0]=='d':
                     pass
@@ -254,11 +258,13 @@ class video_classification():
             except AttributeError:
                 pass
 
-            self.frame = cv2.resize(self.frame, (0, 0), fx = 0.3, fy = 0.3)
+            #self.frame = cv2.resize(self.frame, (0, 0), fx = 0.3, fy = 0.3)
             cv2.imshow('frame', self.frame)
+            out.write(self.frame) 
             if cv2.waitKey(30) & 0xFF == ord('q'):
                 break
 
         self.vid.release()
+        out.release()
 
         cv2.destroyAllWindows()   
