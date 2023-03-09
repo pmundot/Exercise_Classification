@@ -14,10 +14,8 @@ if __name__ == '__main__':
 
     if mimetypes.guess_type(args.do_input)[0].startswith('image'):
         ex = photo_classification(args.do_input)
-        ex.class_image(args.do_layer)
+        ex.class_image(args.do_layer,args.do_output)
 
     if mimetypes.guess_type(args.do_input)[0].startswith('video'):
         ex = video_classification(args.do_input)
-        ex.class_video(args.do_layer)
-    else:
-        print("Not a valid file type. Please try again")
+        ex.class_video(args.do_layer,args.do_output)

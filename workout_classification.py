@@ -108,7 +108,7 @@ class photo_classification():
         return round(math.degrees(angle_rad),2)
     
     def save_img(self,name):
-        cv2.imwrite('{}\\{}.png'.format(os.getcwd(),name),self.image)
+        cv2.imwrite(name,self.image)
     
     def class_image(self,tp,name):
         filename = 'finalized_model.sav'
@@ -217,7 +217,7 @@ class video_classification():
     #def save_img(self,name):
     #    cv2.imwrite('{}\\{}.png'.format(os.getcwd(),name),self.image)
     
-    def class_video(self,tp):
+    def class_video(self,tp,name):
         filename = 'finalized_model.sav'
         clf = pickle.load(open(filename, 'rb'))
 
@@ -225,8 +225,9 @@ class video_classification():
         w = self.vids.get(cv2.CAP_PROP_FRAME_WIDTH)
         h = self.vids.get(cv2.CAP_PROP_FRAME_HEIGHT)
         fps = self.vids.get(cv2.CAP_PROP_FPS) 
-        fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        out = cv2.VideoWriter('output.avi', fourcc, fps, (int(w),int(h)))
+        if name is not None:
+            fourcc = cv2.VideoWriter_fourcc(*'XVID')
+            out = cv2.VideoWriter(name, fourcc, fps, (int(w),int(h)))
 
         while True:
             self.get_vid()
@@ -265,6 +266,7 @@ class video_classification():
                 break
 
         self.vid.release()
-        out.release()
+        if name is not None:
+            out.release()
 
         cv2.destroyAllWindows()   
